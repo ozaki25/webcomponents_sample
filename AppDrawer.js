@@ -1,9 +1,11 @@
 class AppDrawer extends HTMLElement {
   get open() {
+    console.log('get open');
     return this.hasAttribute('open');
   }
 
   set open(val) {
+    console.log('set open');
     if (val) {
       this.setAttribute('open', '');
     } else {
@@ -13,10 +15,12 @@ class AppDrawer extends HTMLElement {
   }
 
   get disabled() {
+    console.log('get disabled');
     return this.hasAttribute('disabled');
   }
 
   set disabled(val) {
+    console.log('set disabled');
     if (val) {
       this.setAttribute('disabled', '');
     } else {
@@ -26,10 +30,13 @@ class AppDrawer extends HTMLElement {
 
   constructor() {
     super();
-    this.addEventListener('click', e => {
-      if (this.disabled) return;
-      this.toggleDrawer();
-    });
+    console.log('constructor');
+    this.addEventListener('click', this.onClick);
+  }
+
+  onClick(e) {
+    if (this.disabled) return;
+    this.toggleDrawer();
   }
 
   toggleDrawer() {
