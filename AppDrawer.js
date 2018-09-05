@@ -31,6 +31,16 @@ class AppDrawer extends HTMLElement {
   constructor() {
     super();
     console.log('constructor');
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+    shadowRoot.innerHTML = `
+      <style>
+        p {
+          color: blue;
+          cursor: pointer;
+        }
+      </style>
+      <p><slot></slot></p>
+    `;
     this.addEventListener('click', this.onClick);
   }
 
