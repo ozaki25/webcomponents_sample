@@ -32,15 +32,10 @@ class AppDrawer extends HTMLElement {
     super();
     console.log('constructor');
     const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.innerHTML = `
-      <style>
-        p {
-          color: blue;
-          cursor: pointer;
-        }
-      </style>
-      <p><slot></slot></p>
-    `;
+    const instance = document
+      .getElementById('app-drawer-template')
+      .content.cloneNode(true);
+    shadowRoot.appendChild(instance);
     this.addEventListener('click', this.onClick);
   }
 

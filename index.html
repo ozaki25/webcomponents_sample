@@ -2,4 +2,15 @@
 <app-drawer open>custom p element(open)</app-drawer>
 <app-drawer disabled>custom p element(disabled)</app-drawer>
 <p>default p element.</p>
+<template id="app-drawer-template">
+  <style>
+    p {
+      color: blue;
+      cursor: pointer;
+    }
+  </style>
+  <p>
+    <slot></slot>
+  </p>
+</template>
 <script src="./AppDrawer.js"></script>
